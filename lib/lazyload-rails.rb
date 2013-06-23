@@ -34,7 +34,7 @@ end
 ActionView::Helpers::AssetTagHelper.module_eval do
   def lazy_image_tag(*attrs)
     placeholder = Lazyload::Rails.configuration.placeholder
-    img = Nokogiri::HTML::DocumentFragment.parse(x_image_tag(*attrs)).at_css("img")
+    img = Nokogiri::HTML::DocumentFragment.parse(image_tag(*attrs)).at_css("img")
     src = img["src"]
 
     img["src"] = placeholder
